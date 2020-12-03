@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    template: nodejs-mongo-persistent
+  name: nodejs-mongo-persistent
+spec:
+  host: ""
+  to:
+    kind: Service
+    name: nodejs-mongo-persistent

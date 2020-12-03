@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    description: Exposes and load balances the application pods
+    service.alpha.openshift.io/dependencies: '[{"name": "mongodb", "kind": "Service"}]'
+  labels:
+    template: nodejs-mongo-persistent
+  name: nodejs-mongo-persistent
+spec:
+  ports:
+  - name: web
+    port: 8080
+    targetPort: 8080
+  selector:
+    name: nodejs-mongo-persistent
